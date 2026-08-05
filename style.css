@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 32px 0;
+  background-color: #111827;
+  color: white;
+}
+
+.site-header h1 {
+  margin: 0 0 8px;
+}
+
+.site-header p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.stat-card,
+.form-section,
+.applications-section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card {
+  padding: 20px;
+}
+
+.stat-card h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form-section,
+.applications-section {
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.form-section h2,
+.applications-section h2 {
+  margin-top: 0;
+}
+
+#job-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  width: fit-content;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+#search-input {
+  max-width: 300px;
+}
+
+#empty-message {
+  color: #6b7280;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #job-form {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .section-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  #search-input {
+    max-width: none;
+  }
+}

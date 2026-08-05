@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>JobTrack</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>JobTrack</h1>
+      <p>Track your applications from submission to offer.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="dashboard">
+      <article class="stat-card">
+        <h2>Total</h2>
+        <p id="total-count">0</p>
+      </article>
+
+      <article class="stat-card">
+        <h2>Applied</h2>
+        <p id="applied-count">0</p>
+      </article>
+
+      <article class="stat-card">
+        <h2>Interviews</h2>
+        <p id="interview-count">0</p>
+      </article>
+
+      <article class="stat-card">
+        <h2>Offers</h2>
+        <p id="offer-count">0</p>
+      </article>
+    </section>
+
+    <section class="form-section">
+      <h2>Add an application</h2>
+
+      <form id="job-form">
+        <div class="form-group">
+          <label for="company">Company</label>
+
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Example: Spotify"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="position">Position</label>
+
+          <input
+            type="text"
+            id="position"
+            name="position"
+            placeholder="Example: Junior Developer"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="status">Status</label>
+
+          <select id="status" name="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date-applied">Date applied</label>
+
+          <input
+            type="date"
+            id="date-applied"
+            name="dateApplied"
+            required
+          >
+        </div>
+
+        <div class="form-group full-width">
+          <label for="job-link">Job posting link</label>
+
+          <input
+            type="url"
+            id="job-link"
+            name="jobLink"
+            placeholder="https://example.com/job"
+          >
+        </div>
+
+        <div class="form-group full-width">
+          <label for="notes">Notes</label>
+
+          <textarea
+            id="notes"
+            name="notes"
+            rows="4"
+            placeholder="Recruiter name, salary, interview notes..."
+          ></textarea>
+        </div>
+
+        <button type="submit">Add application</button>
+      </form>
+    </section>
+
+    <section class="applications-section">
+      <div class="section-heading">
+        <h2>Your applications</h2>
+
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search company or position"
+        >
+      </div>
+
+      <div id="applications-list">
+        <p id="empty-message">
+          You haven't added any applications yet.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
