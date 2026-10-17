@@ -1,6 +1,7 @@
 const jobs = [];
 
 const savedJobs = JSON.parse(localStorage.getItem("jobs")) || [];
+let editingIndex = null;
 
 const jobForm = document.querySelector("#job-form");
 const companyInput = document.querySelector("#company");
@@ -22,19 +23,29 @@ function displayJob(job, index) {
         <p>${job.status}</p>
         <p>${job.notes}</p>
         <button class="delete-btn">Delete</button>
+        <button class="edit-btn">Edit</button>
     `;
 
     const deleteButton = jobCard.querySelector(".delete-btn");
+    const editButton = jobCard.querySelector(".edit-btn");
 
     applicationsList.appendChild(jobCard);
 
 deleteButton.addEventListener("click", function () {
     jobs.splice(index, 1);
 
+
     localStorage.setItem("jobs", JSON.stringify(jobs));
 
     renderJobs();
 });
+editButton.addEventListener("click", function () {
+        editingIndex = index;
+        companyInput.value = job.company; 
+        positionInput.value = job.position;
+        statusInput.value = job.status;
+        notesInput.value = job.notes;
+    });
 }
 
 function renderJobs() {
@@ -55,7 +66,12 @@ jobForm.addEventListener("submit", function (event) {
         notes: notesInput.value
     };
 
-    jobs.push(job);
+    if (editingIndex !== null) {
+        jobs[editingIndex] = job;
+        editingIndex = null;
+    } else {
+        jobs.push(job);
+    }
 
     localStorage.setItem("jobs", JSON.stringify(jobs));
 
